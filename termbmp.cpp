@@ -1,4 +1,7 @@
-
+/*
+Author: Paul Caron
+Date: September2, 2020
+*/
 #include <iostream>
 #include <fstream>
 #include <cstdint>
