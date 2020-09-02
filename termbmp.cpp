@@ -93,6 +93,12 @@ int main(int argc, char ** argv){
         <<"palette colors: "<<palette_colors<<endl
         <<"important colors: "<<important_colors<<endl;
 
+    int palette_offset = 14 + dib_header_size ;
+    if(compression_model == 3) palette_offset += 12;
+
+    char * palette = (char*) malloc(palette_colors*4);
+    myFile.read(palette, palette_colors*4);
+
     myFile.seekg(offset, myFile.beg);
     cout<< endl;
     char image_data[bits_per_pixel/8*image_width*image_height];
@@ -104,10 +110,18 @@ int main(int argc, char ** argv){
     for(int j=0;j<image_width*bits_per_pixel/8;j+=ratio*bits_per_pixel/8){
         int index = image_size/image_height*i+j;
         if(image_size==0) index=j+i*image_width*bits_per_pixel/8;
-        const char red = image_data[index+2];
-        const char green = image_data[index+1];
-        const char blue = image_data[index];
+        char red = image_data[index+2];
+        char green = image_data[index+1];
+        char blue = image_data[index];
+        if(bits_per_pixel==24)
         cout<<"\033[48;2;"<<int(red)<<";"<<int(green)<<";"<<int(blue)<<"m ";
+        else if(bits_per_pixel==8){
+        green = palette[4*blue+1];
+        red = palette[4*blue+2];
+        blue = palette[4*blue];;
+        cout<<"\033[48;2;"<<int(red)<<";"<<int(green)<<";"<<int(blue)<<"m ";
+
+       }
     }
     cout<<"\033[0m"<<endl;
     }
@@ -115,5 +129,3 @@ int main(int argc, char ** argv){
     cout<<"\033[0m\n";
     return 0;
 }
-
-
