@@ -3,7 +3,7 @@ Outputs bmp image on terminal screen.
 
 No compression.
 
-Works also only in Linux. Doesnt work on Windows.
+Works also only in Linux. Doesnt work on Windows, it needs a terminal that supports ANSI eacape sequences.
 
 # compile
 ``` sh
