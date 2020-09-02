@@ -22,3 +22,9 @@ $ ./termbmp
 Please enter file name.
 file.bmp
 ```
+
+# cool thing to do
+
+```
+$ wget https://picsum.photos/200/300 && mv 300 300.jpg && mogrify -format bmp -compress None 300.jpg && ./termbmp 300.bmp
+```
