@@ -95,7 +95,8 @@ int main(int argc, char ** argv){
 
     int palette_offset = 14 + dib_header_size ;
     if(compression_model == 3) palette_offset += 12;
-
+    
+    myFile.seekg(palette_offset,myFile.beg);
     char * palette = (char*) malloc(palette_colors*4);
     myFile.read(palette, palette_colors*4);
 
