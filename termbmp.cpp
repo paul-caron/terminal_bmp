@@ -93,7 +93,6 @@ int main(int argc, char ** argv){
         <<"palette colors: "<<palette_colors<<endl
         <<"important colors: "<<important_colors<<endl;
 
-    myFile.seekg(offset-54);
 
     cout<< endl;
     char image_data[bits_per_pixel/8*image_width*image_height];
