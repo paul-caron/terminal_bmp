@@ -1,5 +1,5 @@
 # terminal_bmp
-outputs bmp images (uncompressed) on terminal screen
+Outputs bmp images (uncompressed) on terminal screen. Support only for 40 bytes DIB header.
 
 # compile
 ``` sh
