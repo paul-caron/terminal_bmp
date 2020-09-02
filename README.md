@@ -5,3 +5,10 @@ outputs bmp images (uncompressed) on terminal screen
 ``` sh
 $ termbmp file.bmp
 ```
+or
+
+``` sh
+$ termbmp
+Please enter file name.
+file.bmp
+```
