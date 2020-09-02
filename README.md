@@ -1,7 +1,7 @@
 # terminal_bmp
 Outputs bmp image on terminal screen. 
 
-Support only for RGB color images. No palette and no compression.
+No compression.
 
 Works also only in Linux. Doesnt work on Windows.
 
