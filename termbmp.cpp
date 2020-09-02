@@ -62,8 +62,8 @@ int main(int argc, char ** argv){
     //dib header
     myFile.read((char*)&dib_header_size,4);
     if(dib_header_size!=40){
-        cerr<<"\033[31mThis version of DIB header is not supported.\033[0m \n";
-        exit(1);
+   //     cerr<<"\033[31mThis version of DIB header is not supported.\033[0m \n";
+   //     exit(1);
     }
     myFile.read(reinterpret_cast<char*>(&image_width),sizeof(image_width));
     myFile.read(reinterpret_cast<char*>(&image_height),sizeof(image_height));
@@ -93,7 +93,7 @@ int main(int argc, char ** argv){
         <<"palette colors: "<<palette_colors<<endl
         <<"important colors: "<<important_colors<<endl;
 
-
+    myFile.seekg(offset, myFile.beg);
     cout<< endl;
     char image_data[bits_per_pixel/8*image_width*image_height];
     myFile.read(image_data, bits_per_pixel/8*image_width*image_height);
