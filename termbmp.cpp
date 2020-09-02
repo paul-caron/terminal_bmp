@@ -102,7 +102,7 @@ int main(int argc, char ** argv){
 
     myFile.seekg(offset, myFile.beg);
     cout<< endl;
-    char image_data[bits_per_pixel/8*image_width*image_height];
+    char * image_data = (char*)malloc(bits_per_pixel/8*image_width*image_height);
     myFile.read(image_data, bits_per_pixel/8*image_width*image_height);
 
     int ratio = image_width/w.ws_col+1;
@@ -128,5 +128,7 @@ int main(int argc, char ** argv){
     }
     myFile.close();
     cout<<"\033[0m\n";
+    free(palette);
+    free(image_data);
     return 0;
 }
