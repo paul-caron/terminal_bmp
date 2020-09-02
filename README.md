@@ -11,12 +11,12 @@ $ make
 
 # command line
 ``` sh
-$ termbmp file.bmp
+$ ./termbmp file.bmp
 ```
 or
 
 ``` sh
-$ termbmp
+$ ./termbmp
 Please enter file name.
 file.bmp
 ```
